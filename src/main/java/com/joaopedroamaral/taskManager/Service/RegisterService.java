@@ -4,6 +4,7 @@ import com.joaopedroamaral.taskManager.DTO.*;
 import com.joaopedroamaral.taskManager.Entity.Company;
 import com.joaopedroamaral.taskManager.Entity.VerificationToken;
 import com.joaopedroamaral.taskManager.Repository.CompanyRepository;
+import com.joaopedroamaral.taskManager.Repository.UserRepository;
 import com.joaopedroamaral.taskManager.Repository.VerificationTokenRepository;
 
 import org.springframework.stereotype.Service;
@@ -20,19 +21,21 @@ public class RegisterService {
     private final EmailService emailService;
     private final VerificationTokenService verificationTokenService;
     private final UserService userService;
+    private final UserRepository userRepository;
 
     public RegisterService(CompanyRepository companyRepository,
-            CompanyService companyService,
-            VerificationTokenRepository tokenRepository,
-            EmailService emailService,
-            VerificationTokenService verificationTokenService,
-            UserService userService) {
+                           CompanyService companyService,
+                           VerificationTokenRepository tokenRepository,
+                           EmailService emailService,
+                           VerificationTokenService verificationTokenService,
+                           UserService userService, UserRepository userRepository) {
         this.companyRepository = companyRepository;
         this.companyService = companyService;
         this.tokenRepository = tokenRepository;
         this.emailService = emailService;
         this.verificationTokenService = verificationTokenService;
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @Transactional
@@ -51,7 +54,7 @@ public class RegisterService {
 
         String token = verificationTokenService.createToken();
 
-        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now().plusMinutes(15));
+        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now());
 
         tokenRepository.save(verificationToken);
 
@@ -64,7 +67,7 @@ public class RegisterService {
 
         String token = verificationTokenService.createToken();
 
-        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now().plusMinutes(15));
+        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now());
 
         tokenRepository.save(verificationToken);
 
