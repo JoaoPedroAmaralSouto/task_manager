@@ -26,9 +26,11 @@ Front-ned
 -Gradle
 -PostgresSQL
 ### Steps
+
+Configure the applications proprieties for the project to work
+
 ```bash
 git clone https://github.com/seu-usuario/task_manager.git
 cd task_manager
 mvn spring-boot:run
 
-Configure the applications proprieties for the project to work
