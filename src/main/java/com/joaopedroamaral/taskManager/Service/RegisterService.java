@@ -54,7 +54,7 @@ public class RegisterService {
 
         String token = verificationTokenService.createToken();
 
-        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now());
+        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now(), user.id());
 
         tokenRepository.save(verificationToken);
 
@@ -67,7 +67,7 @@ public class RegisterService {
 
         String token = verificationTokenService.createToken();
 
-        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now());
+        VerificationToken verificationToken = new VerificationToken(token, LocalDateTime.now(), user.id());
 
         tokenRepository.save(verificationToken);
 

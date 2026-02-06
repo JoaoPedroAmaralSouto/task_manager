@@ -25,13 +25,6 @@ public class TaskService {
     }
 
     public TaskResponseDTO create(TaskRequestDTO dto) {
-        if (userRepository.findByEmail(dto.email()).isEmpty()) {
-            throw new RuntimeException("User not found");
-        }
-        User user = userRepository.findByEmail(dto.email()).orElseThrow( () ->new EntityNotFoundException("User not found"));
-        if (!passwordEncoder.matches(dto.password(), user.getPassword())) {
-            throw new RuntimeException("Invalid password");
-        }
         Task task = new Task(dto.title(), dto.description(), Status.PENDING, user.getId());
         Task savedTask = tasksRepository.save(task);
         return new TaskResponseDTO(savedTask.getId(),

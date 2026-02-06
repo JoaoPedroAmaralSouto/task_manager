@@ -16,11 +16,15 @@ public class VerificationToken {
     @Column(nullable = false)
     private LocalDateTime localDateTime;
 
+    @Column(nullable = false)
+    private Long user_id;
+
     public VerificationToken(){}
 
-    public VerificationToken(String token, LocalDateTime localDateTime){
+    public VerificationToken(String token, LocalDateTime localDateTime, Long user_id){
         this.token = token;
         this.localDateTime = localDateTime;
+        this.user_id = user_id;
     }
 
     public LocalDateTime getLocalDateTime() {
@@ -29,5 +33,9 @@ public class VerificationToken {
 
     public String getToken() {
         return token;
+    }
+
+    public Long getUser_id(){
+        return user_id;
     }
 }

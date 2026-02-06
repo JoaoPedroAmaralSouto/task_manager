@@ -25,19 +25,16 @@ function registerFunciton(event){
             }
         })
     })
-    .then(response =>{
-            if(!response.ok){
-                throw new Error ("Invalid login");
+    .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro na requisição");
             }
-            return response.json();
-        }
+
+            console.log("Deu tudo certo!");
+        }   
     )
-    .then(data => {
-            console.log("Valid login:", data)
-        }
-    )
-    .catch(error =>{
-            console.log("Error: ", error)
+    .catch(error => {
+            console.log("Error:", error);
         }
     )
 }

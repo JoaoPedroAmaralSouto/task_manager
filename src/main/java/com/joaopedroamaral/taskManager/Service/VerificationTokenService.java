@@ -29,6 +29,14 @@ public class VerificationTokenService {
         return UUID.randomUUID().toString();
     }
 
+    public String AuthenticateLogin(String email){
+        String token = createToken();
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        VerificationToken savedToken = new VerificationToken(token, LocalDateTime.now(), user.getId());
+        verificationTokenRepository.save(savedToken);
+        return savedToken.getToken();
+    }
+
     public void Authenticate(String token, String email){
         VerificationToken verificationToken = verificationTokenRepository.findById(token).
                 orElseThrow(()-> new RuntimeException("Invalid token"));
