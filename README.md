@@ -26,7 +26,7 @@ authenticate, and manage tasks stored in a PostgreSQL database.
 ## ✨ Features
 - User and company registration
 - Authentication with email/token validation
-- Task management
+- Task management(In the future)
 - Persistent database with PostgreSQL
 - Containerized environment with Docker
 
