@@ -1,36 +1,46 @@
-#Task manager project
+# Task Manager
 
-A project with front-end and back-end, with an API REST, wich allows to create users, authenticate user and save in a databse
+A full-stack Task Manager application with a REST API that allows users and companies to register, 
+authenticate, and manage tasks stored in a PostgreSQL database.
 
-#Technologies
-Back-end
--Java 25
--Spring Boot
--Gradle
--PostgreSQL
--Spring Data JPA
--Hibernate
-Front-ned
--HTML
--CSS
--JavaScript
+---
 
-#Features
--Register user and company and save in the database, authenticate the email by token
+## 🚀 Technologies
 
-#How to run the project
+### Back-end
+- Java 25
+- Spring Boot
+- Gradle
+- PostgreSQL
+- Spring Data JPA
+- Hibernate
+- Docker
 
-##prerequisites
+### Front-end
+- HTML
+- CSS
+- JavaScript
 
--Java 25
--Gradle
--PostgresSQL
+---
+
+## ✨ Features
+- User and company registration
+- Authentication with email/token validation
+- Task management
+- Persistent database with PostgreSQL
+- Containerized environment with Docker
+
+---
+
+## 🐳 Running with Docker (recommended)
+
+### Prerequisites
+- Docker
+- Docker Compose
+
 ### Steps
-
-Configure the applications proprieties for the project to work
 
 ```bash
 git clone https://github.com/seu-usuario/task_manager.git
 cd task_manager
-mvn spring-boot:run
-
+docker compose up -d --build
