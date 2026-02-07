@@ -41,4 +41,5 @@ application.properties
 src/main/resources/application.properties
 
 # Docker yml
-docker-compose.yml
+docker-compose.override.yml
+.env
