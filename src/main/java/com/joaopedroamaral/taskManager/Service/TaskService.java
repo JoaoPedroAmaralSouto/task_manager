@@ -25,7 +25,7 @@ public class TaskService {
     }
 
     public TaskResponseDTO create(TaskRequestDTO dto) {
-        Task task = new Task(dto.title(), dto.description(), Status.PENDING, user.getId());
+        Task task = new Task(dto.title(), dto.description(), Status.PENDING);
         Task savedTask = tasksRepository.save(task);
         return new TaskResponseDTO(savedTask.getId(),
                 savedTask.getUserID(),

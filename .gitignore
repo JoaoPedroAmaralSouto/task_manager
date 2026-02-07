@@ -39,3 +39,6 @@ out/
 # Spring Boot config
 application.properties
 src/main/resources/application.properties
+
+# Docker yml
+docker-compose.yml

@@ -24,11 +24,10 @@ public class Task {
     protected Task(){
     }
 
-    public Task(String title, String description, Status status, Long userID){
+    public Task(String title, String description, Status status){
         this.title = title;
         this.description = description;
         this.status = status;
-        this.userID = userID;
     }
 
     public Long getId() {
